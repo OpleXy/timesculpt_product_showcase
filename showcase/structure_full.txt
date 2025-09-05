@@ -43,6 +43,7 @@ src
 Line Counts Per File:
 1390 src/assets/siluets.png
 1390 public/siluets.png
+481 src/App.jsx
 260 src/components/Main.jsx
 216 src/assets/ts_logo.png
 216 public/ts_logo.png
@@ -51,9 +52,8 @@ Line Counts Per File:
 80 src/assets/ts_logo_no_bg.png
 80 public/ts_logo_no_bg.png
 69 src/components/Header.jsx
-49 src/App.jsx
-42 src/App.css
 32 src/index.css
 15 src/components/Footer.jsx
 10 src/main.jsx
+0 src/App.css
 
