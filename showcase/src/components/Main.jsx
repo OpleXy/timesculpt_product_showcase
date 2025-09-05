@@ -152,7 +152,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
             <p className={`text-xl text-600 transition-all duration-1000 delay-300 ${
               isVisible.intro ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
-              Elever har vanskeligheter med å forstå historie fra pensumbøker, spesielt komplekse sammenhenger. Pensum er stort og tidskrevende, og det mangler ofte en tydelig oversikt som viser helheten. Visuelle forklaringer er også tidkrevende å lage.
+              Elever har vanskeligheter med å forstå historie fra pensumbøker, spesielt komplekse sammenhenger. Pensum er stort og tidkrevende, og det mangler ofte en tydelig oversikt som viser helheten. Visuelle forklaringer er også tidkrevende å lage.
             </p>
           </div>
 
@@ -215,7 +215,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                           case 'dashboard':
                             return (
                               <img 
-                                src="../assets/screenshots/timeline2.png" 
+                                src="/screenshots/timeline2.png" 
                                 alt="TimeSculpt Welcome Screen" 
                                 className="w-full h-full object-cover"
                               />
@@ -223,7 +223,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                           case 'mobile':
                             return (
                               <img 
-                                src="../assets/screenshots/timeline1.png" 
+                                src="/screenshots/timeline1.png" 
                                 alt="TimeSculpt Timeline" 
                                 className="w-full h-full object-cover"
                               />
@@ -231,7 +231,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                           case 'analytics':
                             return (
                               <img 
-                                src="../assets/screenshots/share.png" 
+                                src="/screenshots/share.png" 
                                 alt="TimeSculpt Timeline Collaboration" 
                                 className="w-full h-full object-cover"
                               />
@@ -239,7 +239,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                           case 'collaboration':
                             return (
                               <img 
-                                src="../assets/screenshots/welcome_screen.png" 
+                                src="/screenshots/welcome_screen.png" 
                                 alt="TimeSculpt Features Collage" 
                                 className="w-full h-full object-cover"
                               />
