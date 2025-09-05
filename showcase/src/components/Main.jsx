@@ -126,6 +126,14 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
     }
   ];
 
+  const handleReadMore = () => {
+    window.open('https://www.olikab.com/timesculpt', '_blank');
+  };
+
+  const handleGoToWorkspace = () => {
+    window.open('https://workspace.timesculpt.no/', '_blank');
+  };
+
   return (
     <main>
       {/* Screenshots Section */}
@@ -177,6 +185,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                         ? '#FF8820' 
                         : 'rgb(30, 136, 229)'
                     }}
+                    onClick={handleReadMore}
                   >
                     Les mer
                   </button>
@@ -206,7 +215,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                           case 'dashboard':
                             return (
                               <img 
-                                src="/src/assets/screenshots/timeline2.png" 
+                                src="../assets/screenshots/timeline2.png" 
                                 alt="TimeSculpt Welcome Screen" 
                                 className="w-full h-full object-cover"
                               />
@@ -214,7 +223,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                           case 'mobile':
                             return (
                               <img 
-                                src="/src/assets/screenshots/timeline1.png" 
+                                src="../assets/screenshots/timeline1.png" 
                                 alt="TimeSculpt Timeline" 
                                 className="w-full h-full object-cover"
                               />
@@ -222,7 +231,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                           case 'analytics':
                             return (
                               <img 
-                                src="/src/assets/screenshots/share.png" 
+                                src="../assets/screenshots/share.png" 
                                 alt="TimeSculpt Timeline Collaboration" 
                                 className="w-full h-full object-cover"
                               />
@@ -230,7 +239,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                           case 'collaboration':
                             return (
                               <img 
-                                src="/src/assets/screenshots/welcome_screen.png" 
+                                src="../assets/screenshots/welcome_screen.png" 
                                 alt="TimeSculpt Features Collage" 
                                 className="w-full h-full object-cover"
                               />
@@ -350,6 +359,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
             <button 
               className="px-8 py-4 rounded-full font-semibold text-lg text-white hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-2 justify-center"
               style={{ backgroundColor: 'rgb(30, 136, 229)' }}
+              onClick={handleGoToWorkspace}
             >
               <ArrowRight className="w-5 h-5" />
               Gå til Workspace

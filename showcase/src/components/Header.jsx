@@ -2,6 +2,10 @@ import React from 'react';
 import { ChevronDown, Users, Star, Shield, ArrowRight } from 'lucide-react';
 
 const Header = ({ scrollY }) => {
+  const handleGoToWorkspace = () => {
+    window.open('https://workspace.timesculpt.no/', '_blank');
+  };
+
   return (
     <section className="relative h-screen flex items-center justify-center">
       {/* Background with siluets overlay */}
@@ -80,6 +84,7 @@ const Header = ({ scrollY }) => {
         <button 
           className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-2 mx-auto"
           style={{ backgroundColor: '#FF8820' }}
+          onClick={handleGoToWorkspace}
         >
           <ArrowRight className="w-5 h-5" />
           Gå til Workspace
