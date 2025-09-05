@@ -1,5 +1,47 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { ChevronDown, Play, Users, TrendingUp, Star, Clock, Zap, Shield, Layers, BarChart3, Scaling } from 'lucide-react';
+import { ChevronDown, Play, Users, TrendingUp, Star, Clock, Zap, Shield, Layers, BarChart3, Scaling, History, Brain, Mail, X, Cookie } from 'lucide-react';
+
+const CookieConsent = () => {
+  const [isVisible, setIsVisible] = useState(true);
+
+  if (!isVisible) return null;
+
+  return (
+    <div className="fixed bottom-4 left-4 z-50 max-w-sm">
+      <div className="bg-white rounded-lg shadow-2xl border border-gray-200 p-4">
+        <div className="flex items-start gap-3">
+          <Cookie className="w-6 h-6 text-orange-500 flex-shrink-0 mt-0.5" />
+          <div className="flex-1">
+            <h3 className="font-semibold text-gray-900 mb-2">Vi bruker informasjonskapsler</h3>
+            <p className="text-sm text-gray-600 mb-3">
+              Vi bruker cookies for å forbedre din opplevelse og analysere bruken av nettsiden.
+            </p>
+            <div className="flex gap-2">
+              <button 
+                onClick={() => setIsVisible(false)}
+                className="bg-blue-600 text-white px-3 py-1.5 rounded text-sm font-medium hover:bg-blue-700 transition-colors"
+              >
+                Godta
+              </button>
+              <button 
+                onClick={() => setIsVisible(false)}
+                className="text-gray-500 px-3 py-1.5 rounded text-sm font-medium hover:text-gray-700 transition-colors"
+              >
+                Avvis
+              </button>
+            </div>
+          </div>
+          <button 
+            onClick={() => setIsVisible(false)}
+            className="text-gray-400 hover:text-gray-600 transition-colors"
+          >
+            <X className="w-4 h-4" />
+          </button>
+        </div>
+      </div>
+    </div>
+  );
+};
 
 const Header = ({ scrollY }) => {
   return (
@@ -65,24 +107,24 @@ const Header = ({ scrollY }) => {
         </p>
         <div className="flex flex-wrap gap-4 justify-center mb-12">
           <div className="flex items-center gap-2 text-orange-300">
-            <Star className="w-5 h-5 fill-current" />
+            <Users className="w-5 h-5" />
             <span>Brukeren i fokus</span>
           </div>
           <div className="flex items-center gap-2 text-white/80">
-            <Users className="w-5 h-5" />
+            <Shield className="w-5 h-5" />
             <span>Moderne, skalerbar teknologi</span>
           </div>
           <div className="flex items-center gap-2 text-orange-300">
-            <TrendingUp className="w-5 h-5" />
+            <Star className="w-5 h-5 fill-current" />
             <span>100% Gratis</span>
           </div>
         </div>
         <button 
-          className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-2xl"
+          className="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full font-semibold text-lg text-white transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-2 mx-auto"
           style={{ backgroundColor: '#FF8820' }}
         >
-          <Play className="w-5 h-5 inline mr-2" />
-          Gå til worksop
+          <History className="w-5 h-5" />
+          Gå til workshop
         </button>
       </div>
 
@@ -95,7 +137,7 @@ const Header = ({ scrollY }) => {
 
 const DeviceFrame = ({ device, children, className = '' }) => {
   const frameClasses = {
-    desktop: 'aspect-video bg-gray-800 rounded-lg p-2',
+    desktop: 'aspect-video bg-gray-800 rounded-lg p-3',
     tablet: 'aspect-[3/4] bg-gray-800 rounded-xl p-1',
     mobile: 'aspect-[1] bg-gray-800 rounded-2xl p-0.5'
   };
@@ -167,7 +209,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
     {
       id: 'dashboard',
       title: 'Hva er TimeSculpt?',
-      description: 'Et gratis læringsverktøy som hjelper med å visualisere og forstå historie', //
+      description: 'Et gratis læringsverktøy som hjelper med å visualisere og forstå historie gjennom interaktive tidslinjer',
       device: 'desktop',
       color: 'from-orange-400 to-orange-600',
       bgColor: 'from-orange-400 to-orange-600'
@@ -175,36 +217,49 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
     {
       id: 'mobile',
       title: 'Løsning = TimeSculpt',
-      description: 'punkter nedover',
-      //Gir full oversikt i ett visuelt grensesnitt, hvor all informasjon er på en og samme plass.
-      //Enkelt å se samtidige og etterfølgende hendelser, i sammenheng.
-      //Mulighet for fokus på detaljer eller helhet (mikro/makro)
-      //Lag tidslinjer raskt, med én setning eller manuelt
-      //Elevene kan tilpasse, legge inn notater og bilder (en slags digital scrapbook)
+      description: (
+        <div className="space-y-2">
+          <p className="mb-3">TimeSculpt løser historieundervisningens utfordringer ved å tilby:</p>
+          <ul className="space-y-1 text-lg">
+            <li>• Full oversikt i ett visuelt grensesnitt</li>
+            <li>• Enkelt å se samtidige og etterfølgende hendelser</li>
+            <li>• Mulighet for fokus på detaljer eller helhet (mikro/makro)</li>
+            <li>• Lag tidslinjer raskt, med én setning eller manuelt</li>
+            <li>• Elevene kan tilpasse, legge inn notater og bilder</li>
+          </ul>
+        </div>
+      ),
       device: 'desktop',
       color: 'from-blue-400 to-blue-600'
     },
     {
       id: 'analytics',
       title: 'Samarbeid med dine klassekamerater',
-      description: 'Effektivt teamsamarbeid med delte prosjekter',
+      description: 'Effektivt teamsamarbeid med delte prosjekter og sanntids redigering',
       device: 'desktop',
       color: 'from-orange-400 to-orange-600'
     },
     {
       id: 'collaboration',
       title: 'Videreutvikles hver dag',
-      description: 'I dag finnes følgende funksjoner:',
+      description: (
+        <div className="space-y-2">
+          <p className="mb-3">I dag finnes følgende funksjoner:</p>
+          <ul className="space-y-1 text-lg">
+            <li>• Lage en tidslinje ved å plotte inn datoer og tittler</li>
+            <li>• AI generering av tidslinjer basert på prompts</li>
+            <li>• Lagre tidslinjer i skyen</li>
+            <li>• Samarbeide på samme tidslinje</li>
+            <li>• Lærere kan lage låste tidslinjer til elevene</li>
+          </ul>
+          <p className="mt-4 text-sm">TimeSculpt er fortsatt i en tidlig fase, og vi jobber kontinuerlig med å legge til nye funksjoner basert på tilbakemeldinger fra brukere.</p>
+        </div>
+      ),
       device: 'mobile',
       color: 'from-blue-400 to-blue-600'
     }
-  ]; //      Lage en tidslinje, ved å plotte inn datoer og tittler
-//Ai generere tidslinjer basert på prompts
-//Lagre tidslinjer
-//Samarbeide på samme tidslinje
-//Lærere kan lage en tidslinje som ikke kan endres på, til elevene
-//TimeSculpt er fortsatt i en tidlig fase, og vi jobber kontinuerlig med å legge til nye funksjoner basert på tilbakemeldinger fra brukere. Har du forslag? Send en epost til timesculpt.post@gmail.com
-//knapp til å sende epost
+  ];
+
   return (
     <main>
       {/* Screenshots Section */}
@@ -224,7 +279,6 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
               isVisible.intro ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'
             }`}>
               Elever har vanskeligheter med å forstå historie fra pensumbøker, spesielt komplekse sammenhenger. Pensum er stort og tidskrevende, og det mangler ofte en tydelig oversikt som viser helheten. Visuelle forklaringer er også tidkrevende å lage.
-
             </p>
           </div>
 
@@ -247,9 +301,9 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                   }`}
                 >
                   <h3 className="text-4xl font-bold mb-4 text-gray-900">{screenshot.title}</h3>
-                  <p className="text-xl text-gray-600 mb-6 leading-relaxed">
+                  <div className="text-xl text-gray-600 mb-6 leading-relaxed">
                     {screenshot.description}
-                  </p>
+                  </div>
                   <button 
                     className={`bg-gradient-to-r ${screenshot.color} hover:scale-105 px-6 py-3 rounded-lg font-semibold transition-all duration-300 shadow-lg text-white`}
                     style={{ 
@@ -321,9 +375,9 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                 isOrange: false
               },
               { 
-                title: 'Ai genereiring av tidslinjer', 
-                desc: 'Drevet av openAI', 
-                icon: <Zap className="w-6 h-6" />,
+                title: 'AI generering av tidslinjer', 
+                desc: 'Drevet av OpenAI', 
+                icon: <Brain className="w-6 h-6" />,
                 isOrange: true
               },
               { 
@@ -334,20 +388,20 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
               },
               { 
                 title: 'Lagre arbeidet ditt i skyen', 
-                desc: 'Bilder text og notater lagres trygt i databasen vår', 
+                desc: 'Bilder, tekst og notater lagres trygt i databasen vår', 
                 icon: <Layers className="w-6 h-6" />,
                 isOrange: true
               },
               { 
-                title: 'Presenter ', 
-                desc: 'Presenter tidslinjen din i fullskjermmodus, som en powerpoint', 
+                title: 'Presenter', 
+                desc: 'Presenter tidslinjen din i fullskjermmodus, som en PowerPoint', 
                 icon: <BarChart3 className="w-6 h-6" />,
                 isOrange: false
               },
               { 
                 title: 'Samarbeid', 
                 desc: 'Samarbeid med dine klassekamerater eller kolleger i sanntid', 
-                icon: <Scaling className="w-6 h-6" />,
+                icon: <Users className="w-6 h-6" />,
                 isOrange: true
               }
             ].map((feature, index) => (
@@ -387,13 +441,23 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <button 
-              className="px-8 py-4 rounded-full font-semibold text-lg text-white hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-2xl"
+              className="px-8 py-4 rounded-full font-semibold text-lg text-white hover:opacity-90 transition-all duration-300 transform hover:scale-105 shadow-2xl flex items-center gap-2 justify-center"
               style={{ backgroundColor: 'rgb(30, 136, 229)' }}
             >
+              <History className="w-5 h-5" />
               Gå til workshop
             </button>
-            
+            <button 
+              className="px-8 py-4 rounded-full font-semibold text-lg text-blue-600 border-2 border-blue-600 hover:bg-blue-600 hover:text-white transition-all duration-300 transform hover:scale-105 flex items-center gap-2 justify-center"
+              onClick={() => window.location.href = 'mailto:timesculpt.post@gmail.com?subject=Forslag til TimeSculpt'}
+            >
+              <Mail className="w-5 h-5" />
+              Send forslag
+            </button>
           </div>
+          <p className="text-gray-500 mt-4 text-sm">
+            Har du forslag? Send en epost til timesculpt.post@gmail.com
+          </p>
         </div>
         
         {/* Floating elements */}
@@ -411,20 +475,59 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
 };
 
 const Footer = () => {
+  const scrollToSection = (sectionId) => {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <footer className="py-12" style={{ backgroundColor: 'rgb(30, 136, 229)' }}>
-      <div className="max-w-6xl mx-auto px-6 text-center">
-        <div className="flex items-center justify-center gap-3 mb-4">
-          <img 
-            src="/ts_logo_no_bg.png" 
-            alt="TimeSculpt" 
-            className="h-8"
-          />
-          <div className="text-2xl font-bold text-white">
-            TimeSculpt
+      <div className="max-w-6xl mx-auto px-6">
+        <div className="flex flex-col md:flex-row justify-between items-center mb-8">
+          <div className="flex items-center gap-3 mb-6 md:mb-0">
+            <img 
+              src="/ts_logo_no_bg.png" 
+              alt="TimeSculpt" 
+              className="h-8"
+            />
+            <div className="text-2xl font-bold text-white">
+              TimeSculpt
+            </div>
           </div>
+          
+          <nav className="flex flex-wrap gap-6 justify-center">
+            <button 
+              onClick={() => scrollToSection('intro')}
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              Problem
+            </button>
+            <button 
+              onClick={() => scrollToSection('dashboard')}
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              Løsning
+            </button>
+            <button 
+              onClick={() => scrollToSection('features')}
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              Funksjoner
+            </button>
+            <a 
+              href="mailto:timesculpt.post@gmail.com?subject=Forslag til TimeSculpt"
+              className="text-white/80 hover:text-white transition-colors"
+            >
+              Kontakt
+            </a>
+          </nav>
         </div>
-        <p className="text-white/80">© 2025 TimeSculpt. Alle rettigheter reservert.</p>
+        
+        <div className="text-center border-t border-white/20 pt-8">
+          <p className="text-white/80">© 2025 TimeSculpt. Alle rettigheter reservert.</p>
+        </div>
       </div>
     </footer>
   );
@@ -464,10 +567,12 @@ const App = () => {
     });
 
     return () => observer.disconnect();
+
+    
   }, []);
 
   return (
-    <div className="min-h-screen bg-white text-gray-900 overflow-hidden" style={fontStyle}>
+    <div className="min-h-screen bg-white text-gray-900 overflow-hidden relative" style={fontStyle}>
       <Header scrollY={scrollY} />
       <Main 
         isVisible={isVisible} 

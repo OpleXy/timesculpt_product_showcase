@@ -32,28 +32,22 @@ src
 │   ├── ts_logo_no_bg.png
 │   └── ts_logo_page.png
 ├── components
-│   ├── Footer.jsx
-│   ├── Header.jsx
-│   └── Main.jsx
 ├── index.css
 └── main.jsx
 
-2 directories, 11 files
+2 directories, 8 files
 
 Line Counts Per File:
 1390 src/assets/siluets.png
 1390 public/siluets.png
-481 src/App.jsx
-260 src/components/Main.jsx
+586 src/App.jsx
 216 src/assets/ts_logo.png
 216 public/ts_logo.png
 95 src/assets/ts_logo_page.png
 95 public/ts_logo_page.png
 80 src/assets/ts_logo_no_bg.png
 80 public/ts_logo_no_bg.png
-69 src/components/Header.jsx
 32 src/index.css
-15 src/components/Footer.jsx
 10 src/main.jsx
 0 src/App.css
 
