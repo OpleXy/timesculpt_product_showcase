@@ -3,9 +3,9 @@ import { Clock, BarChart3, Zap, Users, Shield, Layers, Brain, ArrowRight, Mail }
 
 const DeviceFrame = ({ device, children, className = '' }) => {
   const frameClasses = {
-    desktop: 'aspect-video bg-gray-800 rounded-lg p-3',
-    tablet: 'aspect-[3/4] bg-gray-800 rounded-xl p-1',
-    mobile: 'aspect-[1] bg-gray-800 rounded-2xl p-0.5'
+    desktop: 'aspect-video  rounded-lg p-3',
+    tablet: 'aspect-[3/4]  rounded-xl p-1',
+    mobile: 'aspect-[1]  rounded-2xl p-0.5'
   };
 
   return (
