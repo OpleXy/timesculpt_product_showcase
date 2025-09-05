@@ -52,6 +52,19 @@ const Footer = () => {
         </div>
         
         <div className="text-center border-t border-white/20 pt-8">
+          <div className="mb-4">
+            <a 
+              href="https://www.olikab.com/timesculpt"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 text-orange-300 hover:text-orange-200 transition-colors font-medium"
+            >
+              Interessert i å lese mer om prosjektet? Trykk her
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
+              </svg>
+            </a>
+          </div>
           <p className="text-white/80">© 2025 OLIKAB. Alle rettigheter reservert.</p>
         </div>
       </div>

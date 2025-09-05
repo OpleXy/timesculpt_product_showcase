@@ -118,7 +118,7 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
             <li>• Samarbeide på samme tidslinje</li>
             <li>• Lærere kan lage låste tidslinjer til elevene</li>
           </ul>
-          <p className="mt-4 text-sm">TimeSculpt er fortsatt i en tidlig fase, og vi jobber kontinuerlig med å legge til nye funksjoner basert på tilbakemeldinger fra brukere.</p>
+          <p className="mt-4 text-sm">TimeSculpt er fortsatt i en tidlig fase, og det jobbes kontinuerlig med å legge til nye funksjoner basert på tilbakemeldinger fra brukere.</p>
         </div>
       ),
       device: 'mobile',
@@ -199,32 +199,56 @@ const Main = ({ isVisible, sectionsRef, scrollY }) => {
                   >
                     <DeviceFrame 
                       device={screenshot.device} 
-                      className="transform group-hover:scale-105 transition-transform duration-500 shadow-2xl"
+                      className="transform group-hover:scale-105 transition-transform duration-500"
                     >
-                      {screenshot.id === 'dashboard' ? (
-                        <img 
-                          src="/src/assets/screenshots/welcome_screen.png" 
-                          alt="TimeSculpt Welcome Screen" 
-                          className="w-full h-full object-cover"
-                        />
-                      ) : (
-                        <MockScreenshot screenshot={screenshot} />
-                      )}
+                      {(() => {
+                        switch(screenshot.id) {
+                          case 'dashboard':
+                            return (
+                              <img 
+                                src="/src/assets/screenshots/timeline2.png" 
+                                alt="TimeSculpt Welcome Screen" 
+                                className="w-full h-full object-cover"
+                              />
+                            );
+                          case 'mobile':
+                            return (
+                              <img 
+                                src="/src/assets/screenshots/timeline1.png" 
+                                alt="TimeSculpt Timeline" 
+                                className="w-full h-full object-cover"
+                              />
+                            );
+                          case 'analytics':
+                            return (
+                              <img 
+                                src="/src/assets/screenshots/share.png" 
+                                alt="TimeSculpt Timeline Collaboration" 
+                                className="w-full h-full object-cover"
+                              />
+                            );
+                          case 'collaboration':
+                            return (
+                              <img 
+                                src="/src/assets/screenshots/welcome_screen.png" 
+                                alt="TimeSculpt Features Collage" 
+                                className="w-full h-full object-cover"
+                              />
+                            );
+                          default:
+                            return <MockScreenshot screenshot={screenshot} />;
+                        }
+                      })()}
                     </DeviceFrame>
-
-                    {/*
-
-                    legg til de ulike skjermbildene her til de ulike seksjonene den sorte borderen kan også fjernes og erstaettes med en glow effekt
-                    src/assets/screenshots/welcome_screen.png
-                    src/assets/screenshots/timeline1.png
-                    src/assets/screenshots/timeline1.png
-                    src/assets/screenshots/collage.png
-
-                    */}
                     {/* Glow effect */}
                     <div 
-                      className={`absolute inset-0 -z-10 bg-gradient-to-r ${screenshot.color} rounded-lg blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}
-                      style={{ transform: 'scale(1.1)' }}
+                      className={`absolute inset-0 -z-10 rounded-lg blur-xl opacity-0 group-hover:opacity-30 transition-opacity duration-500`}
+                      style={{ 
+                        transform: 'scale(1.1)',
+                        background: index % 2 === 0 
+                          ? 'linear-gradient(135deg, #FF8820, #FFB366)' 
+                          : 'linear-gradient(135deg, rgb(30, 136, 229), rgb(59, 164, 255))'
+                      }}
                     />
                   </div>
                 </div>

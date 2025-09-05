@@ -28,6 +28,10 @@ src
 ├── App.jsx
 ├── assets
 │   ├── screenshots
+│   │   ├── share.png
+│   │   ├── share2.png
+│   │   ├── timeline1.png
+│   │   ├── timeline2.png
 │   │   └── welcome_screen.png
 │   ├── siluets.png
 │   ├── ts_logo.png
@@ -40,13 +44,17 @@ src
 ├── index.css
 └── main.jsx
 
-3 directories, 12 files
+3 directories, 16 files
 
 Line Counts Per File:
-2168 src/assets/screenshots/welcome_screen.png
+2335 src/assets/screenshots/timeline2.png
+2255 src/assets/screenshots/timeline1.png
+2185 src/assets/screenshots/welcome_screen.png
 1390 src/assets/siluets.png
 1390 public/siluets.png
-359 src/components/Main.jsx
+1284 src/assets/screenshots/share2.png
+1223 src/assets/screenshots/share.png
+383 src/components/Main.jsx
 216 src/assets/ts_logo.png
 216 public/ts_logo.png
 95 src/components/Header.jsx
@@ -54,7 +62,7 @@ Line Counts Per File:
 95 public/ts_logo_page.png
 80 src/assets/ts_logo_no_bg.png
 80 public/ts_logo_no_bg.png
-61 src/components/Footer.jsx
+74 src/components/Footer.jsx
 55 src/App.jsx
 32 src/index.css
 10 src/main.jsx
